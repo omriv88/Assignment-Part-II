@@ -16,7 +16,7 @@ help_menu() {
 }
 
 
-get_commands_and_yaml_files() {
+get_commands_and_files() {
   read -p "Enter a command: " command
   if [ "$command" != "merge" ] && [ "$command" != "common" ] && [ "$command" != "unique" ] && [ "$command" != "sort" ]; then
     echo "Error: Invalid command"
@@ -54,6 +54,6 @@ yq_command() {
   fi
 }
 help_menu
-get_commands_and_yaml_files
+get_commands_and_files
 files_checks
 yq_command
