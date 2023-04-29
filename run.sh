@@ -1,20 +1,20 @@
 #!/bin/bash
 
-clear
+#clear
 # Display Help
 help_menu() {
-  echo "Provide at least one argument"
-  echo "Script options:"
   echo ""
-  echo "Syntax: ./run.sh <option> <file1> <file2>"
-  echo "____________________________________________"
+  echo ""
+  echo "This script receive a command to execute and 2 Yaml files as input."
+  echo ""
   echo "options:"
   echo " merge - Merge the files"
   echo " unique - Extract the Unique keys along with their values"
   echo " common - Extract the Common (key, value) pairs"
   echo " sort - Sort the files by key"
-  echo "____________________________________________"
-  echo "Pease choose Command : merge, common, unique, sort"
+  echo ""
+  echo "Commands : merge, common, unique or sort"
+  echo ""
 }
 
 
@@ -25,8 +25,8 @@ get_commands_and_yaml_files() {
     exit 1
   fi
 
-  read -p "Enter the path to the first YAML file: " yaml_file1
-  read -p "Enter the path to the second YAML file: " yaml_file2
+  read -p "Please Enter tha name of the first YAML file: " yaml_file1
+  read -p "Please Enter the name of the second YAML file: " yaml_file2
 }
 
 
@@ -50,24 +50,6 @@ yq_command() {
     yq e "$yaml_file1" "$yaml_file2"
   elif [ "$command" = "unique" ]; then
     yq eval -N 'to_entries | unique' "$yaml_file1" "$yaml_file2"
-#    keys=$(yq eval -N 'keys | unique' "$yaml_file1" "$yaml_file2")
-#    value=$(yq ".$key" "$yaml_file1" "$yaml_file2") 
-#    for key in $keys; do
-#    echo $keys
-#    echo "$value"
-#    key_list=$(yq eval -N 'keys | unique' "$yaml_file1" "$yaml_file2") 
-#    echo $key_list | sed 's/-*//g'
-#    echo $key_list | sed 's/^[ \t]*//'
-#    echo $key_list
-#    for yq_key in $key_list;do
-#    clean_key=$(echo $key_list | sed 's/- *//g')
-#    for key in $clean_key; do
-#    echo $word
-#    echo $clean_key
-#    echo $line
-#    yq_r=$(yq ".$key" "$yaml_file1" "$yaml_file2")
-#    echo $yq_r
-#    done
   elif [ "$command" = "common" ]; then
     yq eval -N 'to_entries' "$yaml_file1" "$yaml_file2"
   elif [ "$command" = "sort" ]; then
