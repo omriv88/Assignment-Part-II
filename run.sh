@@ -19,7 +19,7 @@ help_menu() {
 
 
 get_commands_and_yaml_files() {
-  read -p "Enter a command: " command
+  read -p "Please Enter a command: " command
   if [ "$command" != "merge" ] && [ "$command" != "unique" ] && [ "$command" != "common" ] && [ "$command" != "sort" ]; then
     echo "Error: Invalid command"
     exit 1
