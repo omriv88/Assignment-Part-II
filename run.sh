@@ -5,7 +5,7 @@
 help_menu() {
   echo ""
   echo ""
-  echo "This script receive a command to execute and 2 Yaml files as input."
+  echo "This Script can be receive a command to execute and 2 Yaml files as input.."
   echo ""
   echo "options:"
   echo " merge - Merge the files"
