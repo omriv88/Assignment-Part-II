@@ -13,7 +13,7 @@ help_menu() {
   echo " common - Extract the Common (key, value) pairs"
   echo " sort - Sort the files by key"
   echo ""
-  echo "Commands : merge, common, unique or sort"
+  echo "Please Entner the Command : merge, common, unique or sort"
   echo ""
 }
 
